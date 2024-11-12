@@ -10,18 +10,24 @@ int main(){
 
     tree->root->data = 50;
 
-    createNode(&node, 20);
-    tree->root->left = node;
-    createNode(&node, 70);
-    tree->root->right = node;
-    createNode(&node, 60);
-    tree->root->right->left = node;
-    createNode(&node, 80);
-    tree->root->right->right = node;
-    createNode(&node, 55);
-    tree->root->right->left->left = node;
-    createNode(&node, 75);
-    tree->root->right->right->left = node;
+    // createNode(&node, 20);
+    // tree->root->left = node;
+    // createNode(&node, 70);
+    // tree->root->right = node;
+    // createNode(&node, 60);
+    // tree->root->right->left = node;
+    // createNode(&node, 80);
+    // tree->root->right->right = node;
+    // createNode(&node, 55);
+    // tree->root->right->left->left = node;
+    // createNode(&node, 75);
+    // tree->root->right->right->left = node;
+    binSortTreePush(tree, 20);
+    binSortTreePush(tree, 70);
+    binSortTreePush(tree, 60);
+    binSortTreePush(tree, 80);
+    binSortTreePush(tree, 55);
+    binSortTreePush(tree, 75);
 
     printBinSortTree(tree, PREFIX);
     printBinSortTree(tree, POSTFIX);

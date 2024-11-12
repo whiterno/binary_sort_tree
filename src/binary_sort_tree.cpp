@@ -2,11 +2,17 @@
 #include <stdlib.h>
 
 #include "../include/binary_sort_tree.h"
+#include "../include/bin_sort_tree_dump.h"
 
 static int binSortTreeVerify(BinSortTree** tree);
+
 static void printNodePostfix(Node* node);
 static void printNodePrefix(Node* node);
 static void printNodeInfix(Node* node);
+
+static int dataPush(Node* node, nodeData_t data);
+static int dataPushRight(Node* node, nodeData_t data);
+static int dataPushLeft(Node* node, nodeData_t data);
 
 int binSortTreeCtor(BinSortTree** tree, BinSortTree* left_tree, BinSortTree* right_tree INIT_ARGS){
     if (tree == NULL){
@@ -47,6 +53,53 @@ int createNode(Node** node, nodeData_t data){
     return NO_ERROR;
 }
 
+int binSortTreePush(BinSortTree* tree, nodeData_t data){
+    BIN_SORT_TREE_VERIFY(&tree);
+
+    dataPush(tree->root, data);
+
+    BIN_SORT_TREE_VERIFY(&tree);
+    return NO_ERROR;
+}
+
+static int dataPush(Node* node, nodeData_t data){
+    if (data > node->data){
+        dataPushRight(node, data);
+    }
+    else{
+        dataPushLeft(node, data);
+    }
+
+    return NO_ERROR;
+}
+
+static int dataPushRight(Node* node, nodeData_t data){
+    if (node->right == NULL){
+        Node* add_node = NULL;
+
+        createNode(&add_node, data);
+        node->right = add_node;
+
+        return NO_ERROR;
+    }
+    dataPush(node->right, data);
+
+    return NO_ERROR;
+}
+
+static int dataPushLeft(Node* node, nodeData_t data){
+    if (node->left == NULL){
+        Node* add_node = NULL;
+        createNode(&add_node, data);
+        node->left = add_node;
+
+        return NO_ERROR;
+    }
+    dataPush(node->left, data);
+
+    return NO_ERROR;
+}
+
 static int binSortTreeVerify(BinSortTree** tree){
     return NO_ERROR;
 }
@@ -56,7 +109,6 @@ int printBinSortTree(BinSortTree* tree, TreePrintMode mode){
 
     printf("Binary sort tree: %s[%p]\n", tree->name, tree);
     printf("Born in %s:%s:%lu, amount of nodes: %lu\n", tree->filename, tree->funcname, tree->line, tree->nodes_amount);
-
 
     switch(mode){
         case (POSTFIX):{
@@ -78,7 +130,6 @@ int printBinSortTree(BinSortTree* tree, TreePrintMode mode){
             return UNKNOWN_PRINT_MODE;
         }
     }
-
     printf("\n");
 
     return NO_ERROR;

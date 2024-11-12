@@ -48,5 +48,6 @@ enum TreePrintMode{
 int binSortTreeCtor(BinSortTree** tree, BinSortTree* left_tree, BinSortTree* right_tree INIT_ARGS);
 int createNode(Node** node, nodeData_t data);
 int printBinSortTree(BinSortTree* tree, TreePrintMode mode);
+int binSortTreePush(BinSortTree* tree, nodeData_t data);
 
 #endif
