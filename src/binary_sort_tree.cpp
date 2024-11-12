@@ -57,6 +57,7 @@ int binSortTreePush(BinSortTree* tree, nodeData_t data){
     BIN_SORT_TREE_VERIFY(&tree);
 
     dataPush(tree->root, data);
+    tree->nodes_amount++;
 
     BIN_SORT_TREE_VERIFY(&tree);
     return NO_ERROR;
@@ -108,7 +109,7 @@ int printBinSortTree(BinSortTree* tree, TreePrintMode mode){
     BIN_SORT_TREE_VERIFY(&tree);
 
     printf("Binary sort tree: %s[%p]\n", tree->name, tree);
-    printf("Born in %s:%s:%lu, amount of nodes: %lu\n", tree->filename, tree->funcname, tree->line, tree->nodes_amount);
+    printf("Born in %s:%s:%lu, amount of nodes: %d\n", tree->filename, tree->funcname, tree->line, tree->nodes_amount);
 
     switch(mode){
         case (POSTFIX):{

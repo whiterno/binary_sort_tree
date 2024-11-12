@@ -14,6 +14,12 @@
 #define INIT_DEBUG_VARS(binSortTree) (*binSortTree)->name = name; (*binSortTree)->filename = filename; (*binSortTree)->funcname = funcname; (*binSortTree)->line = line;
 #define DUMP(binSortTree) binSortTree, __FILE__, __func__, __LINE__
 
+//! @brief Dump .dot filename for png creating
+const char DUMP_DOT_FILENAME[] = "log/dump.dot";
+
+//! @brief Dump .html filename for html dump with log and images
+const char DUMP_HTML_FILENAME[] = "log/dump.html";
+
 typedef int nodeData_t;
 
 struct Node{
@@ -30,13 +36,15 @@ struct BinSortTree{
     size_t line;            ///< serial number of line where tree was initialized
 
     Node* root;
-    size_t nodes_amount;
+    int nodes_amount;
 };
 
 enum Errors{
     NO_ERROR,
     NULL_VALUE_INSERTED,
     UNKNOWN_PRINT_MODE,
+    CYCLE_IN_TREE,
+    FILE_NOT_OPEN,
 };
 
 enum TreePrintMode{

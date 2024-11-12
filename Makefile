@@ -15,3 +15,12 @@ obj/main.o: src/main.cpp ${Headers}
 
 run:
 	./binary_sort_tree.out
+
+target:
+	mkdir log
+	touch log/dump.dot
+	touch log/dump.html
+
+clean:
+	rm -r log
+	rm binary_sort_tree.out

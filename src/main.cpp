@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #include "../include/binary_sort_tree.h"
+#include "../include/bin_sort_tree_dump.h"
 
 int main(){
     BinSortTree* tree = NULL;
@@ -28,6 +29,10 @@ int main(){
     binSortTreePush(tree, 80);
     binSortTreePush(tree, 55);
     binSortTreePush(tree, 75);
+    binSortTreePush(tree, 61);
+    binSortTreePush(tree, 61);
+
+    binSortTreeDump(DUMP(tree), 0);
 
     printBinSortTree(tree, PREFIX);
     printBinSortTree(tree, POSTFIX);

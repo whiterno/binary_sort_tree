@@ -1,0 +1,21 @@
+digraph D{
+	rankdir = TB
+
+	node_9 [color = "darkgreen", style = "filled", shape = "record", fillcolor = "white", label = "{50 | {<fl9> left | <fr9> right}}"]
+	node_9: <fl9> -> node_8 [color = "black", arrowhead = "normal"]
+	node_8 [color = "darkgreen", style = "filled", shape = "record", fillcolor = "white", label = "{20 | {<fl8> left | <fr8> right}}"]
+	node_9: <fr9> -> node_7 [color = "black", arrowhead = "normal"]
+	node_7 [color = "darkgreen", style = "filled", shape = "record", fillcolor = "white", label = "{70 | {<fl7> left | <fr7> right}}"]
+	node_7: <fl7> -> node_6 [color = "black", arrowhead = "normal"]
+	node_6 [color = "darkgreen", style = "filled", shape = "record", fillcolor = "white", label = "{60 | {<fl6> left | <fr6> right}}"]
+	node_6: <fl6> -> node_5 [color = "black", arrowhead = "normal"]
+	node_5 [color = "darkgreen", style = "filled", shape = "record", fillcolor = "white", label = "{55 | {<fl5> left | <fr5> right}}"]
+	node_6: <fr6> -> node_4 [color = "black", arrowhead = "normal"]
+	node_4 [color = "darkgreen", style = "filled", shape = "record", fillcolor = "white", label = "{61 | {<fl4> left | <fr4> right}}"]
+	node_4: <fl4> -> node_3 [color = "black", arrowhead = "normal"]
+	node_3 [color = "darkgreen", style = "filled", shape = "record", fillcolor = "white", label = "{61 | {<fl3> left | <fr3> right}}"]
+	node_7: <fr7> -> node_2 [color = "black", arrowhead = "normal"]
+	node_2 [color = "darkgreen", style = "filled", shape = "record", fillcolor = "white", label = "{80 | {<fl2> left | <fr2> right}}"]
+	node_2: <fl2> -> node_1 [color = "black", arrowhead = "normal"]
+	node_1 [color = "darkgreen", style = "filled", shape = "record", fillcolor = "white", label = "{75 | {<fl1> left | <fr1> right}}"]
+}
