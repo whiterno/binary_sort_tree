@@ -14,6 +14,8 @@ static int dataPush(Node* node, nodeData_t data);
 static int dataPushRight(Node* node, nodeData_t data);
 static int dataPushLeft(Node* node, nodeData_t data);
 
+static int nodesDtor(Node* node);
+
 int binSortTreeCtor(BinSortTree** tree, BinSortTree* left_tree, BinSortTree* right_tree INIT_ARGS){
     if (tree == NULL){
         return NULL_VALUE_INSERTED;
@@ -97,6 +99,32 @@ static int dataPushLeft(Node* node, nodeData_t data){
         return NO_ERROR;
     }
     dataPush(node->left, data);
+
+    return NO_ERROR;
+}
+
+int binSortTreeDtor(BinSortTree** tree){
+    BIN_SORT_TREE_VERIFY(tree);
+
+    nodesDtor((*tree)->root);
+
+    (*tree)->nodes_amount = 0;
+    (*tree)->root = NULL;
+
+    return NO_ERROR;
+
+}
+
+static int nodesDtor(Node* node){
+    if (node->left) nodesDtor(node->left);
+    if (node->right) nodesDtor(node->right);
+
+    node->data = 0;
+    node->left = NULL;
+    node->right = NULL;
+    node->parent = NULL;
+
+    free(node);
 
     return NO_ERROR;
 }

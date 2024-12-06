@@ -42,7 +42,11 @@ static int createDotFile(Node* root){
         return FILE_NOT_OPEN;
     }
 
-    TreeDumpAttributes attrs = {.node_color = "darkgreen", .node_fillcolor = "white", .node_shape = "record", .edge_color = "black", .edge_arrowhead = "normal"};
+    TreeDumpAttributes attrs = {.node_color = "darkgreen",
+                                .node_fillcolor = "white",
+                                .node_shape = "record",
+                                .edge_color = "black",
+                                .edge_arrowhead = "normal"};
 
     fprintf(dump_dot, "digraph D{\n");
     fprintf(dump_dot, "\trankdir = TB\n\n");

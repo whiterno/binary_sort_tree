@@ -37,4 +37,6 @@ int main(){
     printBinSortTree(tree, PREFIX);
     printBinSortTree(tree, POSTFIX);
     printBinSortTree(tree, INFIX);
+
+    binSortTreeDtor(&tree);
 }
